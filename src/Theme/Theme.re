@@ -1,5 +1,54 @@
-let createTheme = (t: ThemeTemplate.theme) => {
+type theme = {
+  background: string, //language
+  language: string,
+  comment: string,
+  punctuation: string,
+  tag: string,
+  functionName: string,
+  boolean: string,
+  property: string,
+  selector: string,
+  string,
+  operator: string,
+  inserted: string,
+};
+
+let default = {
+  background: "#2d2d2d",
+  language: "#ccc",
+  comment: "#999",
+  punctuation: "#ccc",
+  tag: "#e27771",
+  functionName: "#6196cc",
+  boolean: "#f08d49",
+  property: "#f8c555",
+  selector: "#cc99cd",
+  string: "#7ec699",
+  operator: "#67cdcc",
+  inserted: "green",
+};
+
+let updateTheme = (_type: string, _val: string, t: theme): theme => {
+  switch (_type) {
+  | "background" => {...t, background: _val}
+  | "language" => {...t, language: _val}
+  | "comment" => {...t, comment: _val}
+  | "punctuation" => {...t, punctuation: _val}
+  | "tag" => {...t, tag: _val}
+  | "functionName" => {...t, functionName: _val}
+  | "boolean" => {...t, boolean: _val}
+  | "property" => {...t, property: _val}
+  | "selector" => {...t, selector: _val}
+  | "string" => {...t, string: _val}
+  | "operator" => {...t, operator: _val}
+  | "inserted" => {...t, inserted: _val}
+  | _ => default
+  };
+};
+
+let createTheme = (t: theme) => {
   let background = t.background;
+  let language = t.language;
   let comment = t.comment;
   let punctuation = t.punctuation;
   let tag = t.tag;
@@ -19,7 +68,7 @@ let createTheme = (t: ThemeTemplate.theme) => {
 
   code[class*="language-"],
   pre[class*="language-"] {
-    color: #ccc;
+    color: $language;
     background: none;
     font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
     font-size: 1em;
@@ -106,7 +155,7 @@ let createTheme = (t: ThemeTemplate.theme) => {
 
   .token.string,
   .token.char,
-  .token.attr-value,
+  .token.attr-_value,
   .token.regex,
   .token.variable {
     color: $string;

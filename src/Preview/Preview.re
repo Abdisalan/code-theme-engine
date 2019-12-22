@@ -1,6 +1,5 @@
 [@react.component]
 let make = () => {
-  // <div className="gatsby-highlight" data-language="jsx"><pre className="language-jsx"><code className="language-jsx"><span className="token comment">// JSX</span>
   <div className="gatsby-highlight">
     <pre className="language-jsx">
       <code className="language-jsx">
