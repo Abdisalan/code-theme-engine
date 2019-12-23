@@ -14,6 +14,28 @@ let make = () => {
     [|theme|],
   );
 
+  let download: string => unit = [%bs.raw
+    {|
+    function(theme) {
+      var fileName = "theme.css";
+      var content = new Blob([theme], {type: "text/plain"});
+      console.log(content);
+      document.getElementById("download").setAttribute("href", window.URL.createObjectURL(content));
+      document.getElementById("download").setAttribute("download", fileName);
+    }
+  |}
+  ];
+
+  // Prepare Download link
+  React.useEffect1(
+    () => {
+      let fileContent = Theme.createTheme(theme);
+      download(fileContent);
+      None;
+    },
+    [|theme|],
+  );
+
   let onChange = (name: string, e) => {
     // e->ReactEvent.Form.target->Js.Nullable.return->Js.Nullable.toOption
     switch (
@@ -35,5 +57,6 @@ let make = () => {
     <input type_="text" name="selector" onChange={onChange("selector")} />
     <label> {React.string("Default")} </label>
     <input type_="text" name="language" onChange={onChange("language")} />
+    <a href="" id="download"> {React.string("Export")} </a>
   </form>;
 };
