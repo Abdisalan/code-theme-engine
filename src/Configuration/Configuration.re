@@ -6,10 +6,9 @@ let make = () => {
 
   React.useEffect1(
     () => {
-      let style = document##createElement("style");
-      let () = document##head##appendChild(style);
+      let style = document##getElementById("prism-styles");
       style##innerHTML #= Theme.createTheme(theme);
-      Some(() => document##head##innerHTML #= "");
+      None;
     },
     [|theme|],
   );
@@ -19,7 +18,6 @@ let make = () => {
     function(theme) {
       var fileName = "theme.css";
       var content = new Blob([theme], {type: "text/plain"});
-      console.log(content);
       document.getElementById("download").setAttribute("href", window.URL.createObjectURL(content));
       document.getElementById("download").setAttribute("download", fileName);
     }
@@ -41,10 +39,9 @@ let make = () => {
     switch (
       e |> ReactEvent.Form.target |> Js.Nullable.return |> Js.Nullable.toOption
     ) {
-    | None => Js.log("this bih null")
+    | None => ()
     | Some(target) =>
-      Js.log("we got some" ++ target##value);
-      setTheme(_ => Theme.updateTheme(name, target##value, theme));
+      setTheme(_ => Theme.updateTheme(name, target##value, theme))
     };
   };
 
