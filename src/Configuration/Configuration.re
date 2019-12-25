@@ -45,12 +45,14 @@ let make = () => {
   };
 
   let fields = [|
+    ("background", theme.background),
     ("comment", theme.comment),
     ("string", theme.string),
     ("keyword", theme.keyword),
     ("language", theme.language),
     ("punctuation", theme.punctuation),
     ("function", theme.function_),
+    ("operator", theme.operator),
   |];
 
   let transform = args =>
