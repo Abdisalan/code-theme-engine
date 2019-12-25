@@ -6,5 +6,6 @@ let style = {j|
 form {
   display: flex;
   flex-direction: column;
+  margin: 10px;
 }
 |j};

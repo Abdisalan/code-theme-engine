@@ -35,7 +35,6 @@ let make = () => {
   );
 
   let onChange = (name: string, e) => {
-    // e->ReactEvent.Form.target->Js.Nullable.return->Js.Nullable.toOption
     switch (
       e |> ReactEvent.Form.target |> Js.Nullable.return |> Js.Nullable.toOption
     ) {
@@ -45,15 +44,22 @@ let make = () => {
     };
   };
 
+  let fields = [|
+    ("comment", theme.comment),
+    ("string", theme.string),
+    ("keyword", theme.keyword),
+    ("language", theme.language),
+    ("punctuation", theme.punctuation),
+    ("function", theme.function_),
+  |];
+
+  let transform = args =>
+    switch (args) {
+    | (field, value) => <Field key=field label=field value onChange />
+    };
+
   <form>
-    <label> {React.string("Comment")} </label>
-    <input type_="text" name="comment" onChange={onChange("comment")} />
-    <label> {React.string("String")} </label>
-    <input type_="text" name="string" onChange={onChange("string")} />
-    <label> {React.string("Selector")} </label>
-    <input type_="text" name="selector" onChange={onChange("selector")} />
-    <label> {React.string("Default")} </label>
-    <input type_="text" name="language" onChange={onChange("language")} />
+    {ReasonReact.array(Array.map(transform, fields))}
     <a href="" id="download"> {React.string("Export")} </a>
   </form>;
 };

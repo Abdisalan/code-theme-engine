@@ -4,10 +4,10 @@ type theme = {
   comment: string,
   punctuation: string,
   tag: string,
+  function_: string,
   functionName: string,
-  boolean: string,
   property: string,
-  selector: string,
+  keyword: string,
   string,
   operator: string,
   inserted: string,
@@ -19,10 +19,10 @@ let default = {
   comment: "#999",
   punctuation: "#ccc",
   tag: "#e27771",
+  function_: "#f08d49",
   functionName: "#6196cc",
-  boolean: "#f08d49",
   property: "#f8c555",
-  selector: "#cc99cd",
+  keyword: "#cc99cd",
   string: "#7ec699",
   operator: "#67cdcc",
   inserted: "green",
@@ -35,10 +35,10 @@ let updateTheme = (_type: string, _val: string, t: theme): theme => {
   | "comment" => {...t, comment: _val}
   | "punctuation" => {...t, punctuation: _val}
   | "tag" => {...t, tag: _val}
+  | "function" => {...t, function_: _val}
   | "functionName" => {...t, functionName: _val}
-  | "boolean" => {...t, boolean: _val}
   | "property" => {...t, property: _val}
-  | "selector" => {...t, selector: _val}
+  | "keyword" => {...t, keyword: _val}
   | "string" => {...t, string: _val}
   | "operator" => {...t, operator: _val}
   | "inserted" => {...t, inserted: _val}
@@ -52,10 +52,10 @@ let createTheme = (t: theme) => {
   let comment = t.comment;
   let punctuation = t.punctuation;
   let tag = t.tag;
+  let function_ = t.function_;
   let functionName = t.functionName;
-  let boolean = t.boolean;
   let property = t.property;
-  let selector = t.selector;
+  let keyword = t.keyword;
   let string = t.string;
   let operator = t.operator;
   let inserted = t.inserted;
@@ -135,7 +135,7 @@ let createTheme = (t: theme) => {
   .token.boolean,
   .token.number,
   .token.function {
-    color: $boolean;
+    color: $function_;
   }
 
   .token.property,
@@ -150,7 +150,7 @@ let createTheme = (t: theme) => {
   .token.atrule,
   .token.keyword,
   .token.builtin {
-    color: $selector;
+    color: $keyword;
   }
 
   .token.string,
