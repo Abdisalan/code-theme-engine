@@ -3,9 +3,14 @@ let style = {j|
   display: flex;
 }
 
-form {
+.config {
   display: flex;
   flex-direction: column;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
   margin: 10px;
 }
 
@@ -27,5 +32,10 @@ label {
 }
 input {
   padding: 3px;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  width: 120px;
 }
 |j};

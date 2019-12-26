@@ -11,6 +11,8 @@ type theme = {
   string,
   operator: string,
   inserted: string,
+  highlight: string,
+  highlightBorder: string,
 };
 
 let default = {
@@ -26,6 +28,8 @@ let default = {
   string: "#7ec699",
   operator: "#67cdcc",
   inserted: "green",
+  highlight: "#022a4b",
+  highlightBorder: "#ffa7c4",
 };
 
 let updateTheme = (_type: string, _val: string, t: theme): theme => {
@@ -42,6 +46,8 @@ let updateTheme = (_type: string, _val: string, t: theme): theme => {
   | "string" => {...t, string: _val}
   | "operator" => {...t, operator: _val}
   | "inserted" => {...t, inserted: _val}
+  | "highlight" => {...t, highlight: _val}
+  | "highlightBorder" => {...t, highlightBorder: _val}
   | _ => default
   };
 };
@@ -59,6 +65,8 @@ let createTheme = (t: theme) => {
   let string = t.string;
   let operator = t.operator;
   let inserted = t.inserted;
+  let highlight = t.highlight;
+  let highlightBorder = t.highlightBorder;
   {j|
   /**
    * prism.js tomorrow night eighties for JavaScript, CoffeeScript, CSS and HTML
@@ -181,6 +189,16 @@ let createTheme = (t: theme) => {
 
   .token.inserted {
     color: $inserted;
+  }
+
+  .gatsby-highlight-code-line {
+    background-color: $highlight;
+    display: block;
+    /* margin-right: -1.3125rem;
+    margin-left: -1.3125rem; */
+    padding-right: 1em;
+    padding-left: 1.25em;
+    border-left: 0.25em solid $highlightBorder;
   }
 |j};
 };

@@ -53,6 +53,8 @@ let make = () => {
     ("punctuation", theme.punctuation),
     ("function", theme.function_),
     ("operator", theme.operator),
+    ("highlight", theme.highlight),
+    ("highlightBorder", theme.highlightBorder),
   |];
 
   let transform = args =>
@@ -60,8 +62,8 @@ let make = () => {
     | (field, value) => <Field key=field label=field value onChange />
     };
 
-  <form>
-    {ReasonReact.array(Array.map(transform, fields))}
+  <div className="config">
+    <form> {ReasonReact.array(Array.map(transform, fields))} </form>
     <a href="" id="download"> {React.string("Export")} </a>
-  </form>;
+  </div>;
 };

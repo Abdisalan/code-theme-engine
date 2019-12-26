@@ -21,8 +21,8 @@ let make = (~label, ~value, ~onChange) => {
     [|value|],
   );
 
-  <>
+  <div className="field">
     <label> {React.string(label)} </label>
     <input type_="text" name=label onChange={onChange(label)} value style />
-  </>;
+  </div>;
 };
