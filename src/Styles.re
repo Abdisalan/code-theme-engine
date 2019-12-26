@@ -25,4 +25,7 @@ body {
 label {
   margin-top: 10px;
 }
+input {
+  padding: 3px;
+}
 |j};
