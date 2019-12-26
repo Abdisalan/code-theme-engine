@@ -27,15 +27,23 @@ body {
   display: flex;
   font-family: sans-serif;
 }
-label {
-  margin-top: 10px;
-}
 input {
   padding: 3px;
+}
+.field-container {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  margin-right: 10px;
 }
 .field {
   display: flex;
   flex-direction: column;
-  width: 120px;
+}
+.colorBlock {
+  margin-right: 5px;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
 }
 |j};
