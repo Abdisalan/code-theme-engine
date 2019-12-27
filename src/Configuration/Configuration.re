@@ -55,6 +55,8 @@ let make = () => {
     ("operator", theme.operator),
     ("highlight", theme.highlight),
     ("highlightBorder", theme.highlightBorder),
+    ("tag", theme.tag),
+    ("property", theme.property),
   |];
 
   let transform = args =>

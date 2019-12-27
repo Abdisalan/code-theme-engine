@@ -6,17 +6,17 @@ let style = {j|
 .config {
   display: flex;
   flex-direction: column;
+  margin: 10px;
 }
 
 form {
   display: flex;
   flex-wrap: wrap;
-  margin: 10px;
 }
 
 #download {
   padding: 10px 5px;
-  background: #C8E6C9;
+  background: #ccc;
   text-align: center;
   border-radius: 5px;
   margin: 5px 0;
