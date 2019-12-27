@@ -1,7 +1,13 @@
 # code-theme-engine
 
-## npm start
-Compiles the project into javascript.
+## How to run
+### Install and compile reasonml code to javascript
+```bash
+$ npm install
+$ npm start
+```
 
-## npm run server
-Serves the page on localhost 8000
+### Open another terminal window and serve the app 
+```bash
+$ npm run server
+```
