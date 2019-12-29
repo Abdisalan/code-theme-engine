@@ -1,5 +1,7 @@
 # code-theme-engine
 
+![](preview.png)
+
 ## How to run
 ### Install and compile reasonml code to javascript
 ```bash
